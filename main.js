@@ -14,22 +14,32 @@ let hunter, hunterX, hunterY, hunterWidth, hunterHeight;
 let coin, coinX, coinY, coinWidth, coinHeight;
 
 
+document.addEventListener('click', musicPlay);
+function musicPlay() {
+    document.getElementById ("hudba").play();
+}
+
+
+
 //funkce při načtení stránky
 function startingPosition (){
+
 	hunter = document.getElementById("panacek");
 	coin = document.getElementById("mince");
+
 	hunterWidth = hunter.width;
 	hunterHeight = hunter.height;
 
 	hunterX = Math.round(window.innerWidth / 2 - hunterWidth / 2);
 	hunterY = Math.round(window.innerHeight / 2 - hunterHeight / 2);
-
-	placeHunter()
+	
+	placeHunter();
 
 	coinWidth = coin.width;
 	coinHeight = coin.height;
 
-	newPositionCoin()
+	newPositionCoin();
+	
 }
 
 //umístění huntera na stránce na střed
@@ -91,9 +101,14 @@ function hunterMoving(udalost) {
 }
 
 
+
 function objectsMeetingPoint() {
 	if (!( hunterX + hunterWidth < coinX || coinX + coinWidth < hunterX || hunterY + hunterHeight < coinY || coinY + coinHeight < hunterY)) {
-		newPositionCoin();	
+		newPositionCoin();
+		document.getElementById("zvukmince").play();
+		
 	}
+
+
 }
 
