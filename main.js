@@ -24,8 +24,6 @@ function startingPosition (){
 	hunterX = Math.round(window.innerWidth / 2 - hunterWidth / 2);
 	hunterY = Math.round(window.innerHeight / 2 - hunterHeight / 2);
 
-	console.log (hunterX)
-
 	placeHunter()
 
 	coinWidth = coin.width;
@@ -56,7 +54,7 @@ function hunterMoving(udalost) {
 			hunterX = 0;
 		}
 		hunter.src = "obrazky/panacek-vlevo.png";
-		console.log (hunterX);
+		
 	}
 
 	if (udalost.key === "ArrowRight") {
@@ -65,7 +63,7 @@ function hunterMoving(udalost) {
 			hunterX = window.innerWidth - hunterWidth;
 		}
 		hunter.src = "obrazky/panacek-vpravo.png";
-		console.log (hunterX);
+		
 	}
 
 	
@@ -75,7 +73,7 @@ function hunterMoving(udalost) {
 			hunterY = 0;
 		}
 		hunter.src = "obrazky/panacek-nahoru.png";
-		console.log (hunterY);
+		
 	}
 
 
@@ -85,7 +83,17 @@ function hunterMoving(udalost) {
 			hunterY = window.innerHeight - hunterHeight;
 		}
 		hunter.src = "obrazky/panacek.png";
-		console.log (hunterX);
+		
 	}
-	placeHunter()
+	placeHunter();
+	
+	objectsMeetingPoint()
 }
+
+
+function objectsMeetingPoint() {
+	if (!( hunterX + hunterWidth < coinX || coinX + coinWidth < hunterX || hunterY + hunterHeight < coinY || coinY + coinHeight < hunterY)) {
+		newPositionCoin();	
+	}
+}
+
