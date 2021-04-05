@@ -101,14 +101,30 @@ function hunterMoving(udalost) {
 }
 
 
+let odstavec = document.querySelector("#odstavec")
+
+
+function ChangeFontSize(){
+var fontSize = parseInt(window.getComputedStyle(odstavec).fontSize);
+
+odstavec.style.fontSize = fontSize + 1 + "px";
+}
+
+
+
 
 function objectsMeetingPoint() {
 	if (!( hunterX + hunterWidth < coinX || coinX + coinWidth < hunterX || hunterY + hunterHeight < coinY || coinY + coinHeight < hunterY)) {
 		newPositionCoin();
-		document.getElementById("zvukmince").play();
-		
+		document.getElementById("zvukmince").play();	
+
+		let score = document.getElementById("score");
+		var scoreCounter = parseInt(document.getElementById("score").innerText) + 1;	
+
+		score.innerHTML = scoreCounter;	
 	}
 
-
+	
+	
 }
 
