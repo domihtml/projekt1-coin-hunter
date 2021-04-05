@@ -14,7 +14,7 @@ let hunter, hunterX, hunterY, hunterWidth, hunterHeight;
 let coin, coinX, coinY, coinWidth, coinHeight;
 
 
-document.addEventListener('click', musicPlay);
+document.addEventListener("keydown", musicPlay);
 function musicPlay() {
     document.getElementById ("hudba").play();
 }
