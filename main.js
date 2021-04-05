@@ -124,7 +124,10 @@ function objectsMeetingPoint() {
 		score.innerHTML = scoreCounter;	
 	}
 
-	
+	if (scoreCounter > 5){
+		document.getElementById("zvukfanfara").play();
+		alert("Vítěz");
+	}
 	
 }
 
